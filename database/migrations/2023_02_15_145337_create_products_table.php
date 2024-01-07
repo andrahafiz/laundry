@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name_product', '255');
             $table->string('slug')->unique();
-            $table->foreignId('categories_id');
-            $table->text('description');
-            $table->integer('stock');
-            $table->integer('price');
+            $table->foreignId('categories_id')->nullable();
+            $table->text('description')->nullable();
+            $table->integer('stock')->default(0);
+            $table->string('unit');
+            $table->integer('price')->default(0);
             $table->string('image');
             $table->timestamps();
             $table->softDeletes();

@@ -13,7 +13,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                
+
                 <h1>Tambah Data Produk</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item"><a href="#">Produk</a></div>
@@ -65,6 +65,19 @@
                                         </div>
                                     </div>
                                     <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Satuan</label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <select class="form-control selectric" name='satuan'>
+                                                <option>Pilih Satuan Produk</option>
+                                                <option value="meter">Meter</option>
+                                                <option value="dudukan">Dudukan</option>
+                                                <option value="set">Set</option>
+                                                <option value="unit">Unit</option>
+                                                <option value="pcs">Pcs</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-4">
                                         <label
                                             class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi</label>
                                         <div class="col-sm-12 col-md-7">
@@ -81,12 +94,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Stok</label>
-                                        <div class="col-sm-12 col-md-7">
-                                            <input type="number" class="form-control" name="stok">
-                                        </div>
-                                    </div>
+
                                     <div class="form-group row mb-4">
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga
                                             Satuan</label>

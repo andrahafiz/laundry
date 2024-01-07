@@ -12,7 +12,7 @@ class Product extends Model
     protected $table = "products";
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name_product', 'slug', 'categories_id', 'price', 'description', 'stock', 'image'
+        'name_product', 'slug', 'categories_id', 'price', 'description', 'unit', 'stock', 'image'
     ];
 
     protected $with = ['categories'];
@@ -27,7 +27,6 @@ class Product extends Model
 
     public function categories()
     {
-        # code...
         return $this->belongsTo(Category::class, 'categories_id', 'id');
     }
 }

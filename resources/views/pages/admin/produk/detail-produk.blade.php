@@ -67,27 +67,6 @@
                                                     <small class="text-muted">/ Pcs</small>
                                                 </h3>
                                             </div>
-                                            <div class="col-4">
-                                                @if ($product->stock == 0)
-                                                    <button type="button"
-                                                        class="btn btn-danger btn-icon icon-left d-inline btn-block">
-                                                        <i class="fa-solid fa-boxes-stacked"></i> Stok <span
-                                                            class="badge badge-transparent">{{ $product->stock }}</span>
-                                                    </button>
-                                                @elseif ($product->stock <= 15)
-                                                    <button type="button"
-                                                        class="btn btn-warning btn-icon icon-left d-inline btn-block">
-                                                        <i class="fa-solid fa-boxes-stacked"></i> Stok <span
-                                                            class="badge badge-transparent">{{ $product->stock }}</span>
-                                                    </button>
-                                                @else
-                                                    <button type="button"
-                                                        class="btn btn-success btn-icon icon-left d-inline btn-block">
-                                                        <i class="fa-solid fa-boxes-stacked"></i> Stok <span
-                                                            class="badge badge-transparent">{{ $product->stock }}</span>
-                                                    </button>
-                                                @endif
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -24,11 +24,9 @@ class ProdukCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
             'nama' => ['string', 'max:255', 'required'],
-            // 'slug' => ['string', 'required'],
+            'satuan'  => ['required', 'string'],
             'category' => ['required', 'exists:categories,id'],
-            'stok' => ['numeric', 'required'],
             'deskripsi' => ['string', 'max:255', 'required'],
             'image' => ['sometimes', 'image', 'mimes:png,jpg,jpeg'],
             'harga' => ['numeric', 'required'],
@@ -42,11 +40,11 @@ class ProdukCreateRequest extends FormRequest
             'nama.string' => 'Nama produk harus karakter',
             'nama.max' => 'Nama produk hanya boleh 255 karakter',
 
+            'unit.required' => 'Satuan produk wajib diisi',
+            'unit.string' => 'Satuan produk harus karakter',
+
             'category.required' => 'Kategory produk wajib diisi',
             'category.exists' => 'Kategory produk tidak terdaftar',
-
-            'stok.required' => 'Stok produk wajib diisi',
-            'stok.numeric' => 'Stok produk harus angka',
 
             'deskripsi.required' => 'Deskripsi produk wajib diisi',
             'deskripsi.string' => 'Deskripsi produk harus karakter',

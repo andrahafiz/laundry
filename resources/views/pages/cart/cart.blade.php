@@ -57,7 +57,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Daftar Belanjaan</h4>
+                                <h4>Daftar Pesanan</h4>
                             </div>
                             <div class="card-body">
 

@@ -69,6 +69,24 @@
                                         </div>
                                     </div>
                                     <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Satuan</label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <select class="form-control selectric" name='satuan'>
+                                                <option>Pilih Satuan Produk</option>
+                                                <option value="meter" {{ $product->unit == 'meter' ? 'selected' : '' }}>
+                                                    Meter</option>
+                                                <option value="dudukan"
+                                                    {{ $product->unit == 'dudukan' ? 'selected' : '' }}>Dudukan</option>
+                                                <option value="set" {{ $product->unit == 'set' ? 'selected' : '' }}>
+                                                    Set</option>
+                                                <option value="unit" {{ $product->unit == 'unit' ? 'selected' : '' }}>
+                                                    Unit</option>
+                                                <option value="pcs" {{ $product->unit == 'pcs' ? 'selected' : '' }}>
+                                                    Pcs</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-4">
                                         <label
                                             class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi</label>
                                         <div class="col-sm-12 col-md-7">
@@ -103,13 +121,6 @@
                                                         mengubah gambar</small>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Stok</label>
-                                        <div class="col-sm-12 col-md-7">
-                                            <input type="number" class="form-control" name="stok"
-                                                value="{{ old('stok') ?? $product->stock }}">
                                         </div>
                                     </div>
                                     <div class="form-group row mb-4">

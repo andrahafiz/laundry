@@ -63,8 +63,7 @@
                                                 <th>Nama</th>
                                                 <th>Kategori</th>
                                                 <th>Harga</th>
-                                                <th>Stok</th>
-                                                <th>Status</th>
+                                                <th>Satuan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -78,16 +77,7 @@
                                                     <td class="align-middle">{{ $produk->categories->category }}</td>
                                                     <td class="align-middle">@
                                                         Rp. {{ Helper::formatRupiah($produk->price) }}
-                                                    <td class="align-middle">{{ $produk->stock }}</td>
-                                                    <td class="align-middle">
-                                                        @if ($produk->stock == 0)
-                                                            <div class="badge badge-danger">Habis</div>
-                                                        @elseif ($produk->stock <= 15)
-                                                            <div class="badge badge-warning">Menipis</div>
-                                                        @else
-                                                            <div class="badge badge-success">Tersedia</div>
-                                                        @endif
-                                                    </td>
+                                                    <td class="align-middle">{{ $produk->unit }}</td>
                                                     <td width="10%" class="align-middle">
                                                         <a href="{{ route('admin.produk.detail', $produk->slug) }}"
                                                             class="btn btn-icon btn-sm btn-info">
@@ -103,7 +93,8 @@
                                                             @csrf
                                                             {{ method_field('delete') }}
                                                             <button type="submit" class="btn btn-icon btn-sm btn-danger"
-                                                                title='Delete' onclick="return confirm('Data ini akan di hapus, anda yakin?')">
+                                                                title='Delete'
+                                                                onclick="return confirm('Data ini akan di hapus, anda yakin?')">
                                                                 <i class="fas fa-trash"></i></button>
                                                         </form>
                                                     </td>

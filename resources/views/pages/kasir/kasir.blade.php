@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Kasir')
+@section('title', 'Pesan Jasa Cuci')
 
 @push('style')
 @endpush
@@ -9,9 +9,9 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Kasir</h1>
+                <h1>Pesan Jasa Cuci</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item">Kasir</div>
+                    <div class="breadcrumb-item">Pesan Jasa Cuci</div>
                 </div>
             </div>
             @if (session()->has('success'))
@@ -55,7 +55,7 @@
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" name="search" placeholder="" aria-label="">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">Search</button>
+                                        <button class="btn btn-primary" type="submit">Cari</button>
                                     </div>
                                 </div>
                             </div>
@@ -76,12 +76,6 @@
                                     <div class="article-image"
                                         data-background="{{ Helper::setUrlImage($produk->image, 'news/img13.jpg') }}">
                                     </div>
-                                    <div class="article-badge">
-                                        <div
-                                            class="article-badge-item {{ $produk->stock != 0 ? 'btn-warning' : 'btn-danger' }} ">
-                                            <i class="fas fa-boxes"></i> Stok : {{ $produk->stock }}
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="article-details rounded-bottom">
                                     <div class="article-title ">
@@ -96,22 +90,15 @@
                                                     {{ Helper::formatRupiah($produk->price) }}</p>
                                             </div>
                                             <div class="col-4 ">
-                                                @if ($produk->stock == 0)
-                                                    <a type="button" class="btn disabled btn-secondary">
-                                                        <i class="fas fa-cart-shopping"></i>
-                                                    </a>
-                                                @else
-                                                    <form
-                                                        action="{{ route(Helper::AdminOrUser('cart.add-to-cart'), $produk->id) }}"
-                                                        method="POST" enctype="multipart/form-data">
-                                                        @csrf
-                                                        <input name="products_id" type="hidden"
-                                                            value="{{ $produk->id }}">
-                                                        <button type="submit" class="btn btn-success" data-toggle="tooltip"
-                                                            data-placement="top" title="Tambahkan Kekeranjang"><i
-                                                                class="fas fa-cart-shopping"></i></button>
-                                                    </form>
-                                                @endif
+                                                <form
+                                                    action="{{ route(Helper::AdminOrUser('cart.add-to-cart'), $produk->id) }}"
+                                                    method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input name="products_id" type="hidden" value="{{ $produk->id }}">
+                                                    <button type="submit" class="btn btn-success" data-toggle="tooltip"
+                                                        data-placement="top" title="Tambahkan Kekeranjang"><i
+                                                            class="fas fa-plus"></i></button>
+                                                </form>
                                             </div>
                                         </div>
 

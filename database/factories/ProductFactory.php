@@ -22,6 +22,7 @@ class ProductFactory extends Factory
             //
             'name_product' => fake()->word(),
             'slug' =>  Str::slug(fake()->unique()->word()),
+            'unit' => fake()->word(),
             'categories_id' => Category::factory()->create()->id,
             'description' => fake()->paragraph(),
             'stock' => fake()->randomNumber(2),

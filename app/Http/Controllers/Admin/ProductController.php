@@ -56,7 +56,7 @@ class ProductController extends Controller
     public function store(ProdukCreateRequest $request)
     {
         $params = $request->safe([
-            'nama', 'category', 'deskripsi', 'stok', 'harga', 'image'
+            'nama', 'category', 'deskripsi', 'harga', 'image', 'satuan'
         ]);
         DB::transaction(function () use ($params, $request) {
             $photo = $request->file('image');
@@ -69,7 +69,7 @@ class ProductController extends Controller
                 'slug' => Str::slug($params['nama']),
                 'categories_id' => $params['category'],
                 'description' => $params['deskripsi'],
-                'stock' => $params['stok'],
+                'unit' => $params['satuan'],
                 'price' => $params['harga'],
                 'image' => $filename ?? 'no-image.jpg'
             ]);
@@ -120,7 +120,7 @@ class ProductController extends Controller
     public function update(ProdukUpdateRequest $request, Product $product)
     {
         $params = $request->safe([
-            'nama', 'category', 'deskripsi', 'stok', 'harga', 'image'
+            'nama', 'category', 'deskripsi',  'harga', 'image', 'satuan'
         ]);
         try {
             DB::transaction(function () use ($params, $request, $product) {
@@ -140,7 +140,7 @@ class ProductController extends Controller
                     'slug' => Str::slug($params['nama']),
                     'categories_id' => $params['category'],
                     'description' => $params['deskripsi'],
-                    'stock' => $params['stok'],
+                    'unit' => $params['satuan'],
                     'price' => $params['harga'],
                     'image' => $filename
                 ]);

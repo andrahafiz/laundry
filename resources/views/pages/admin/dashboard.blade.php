@@ -139,47 +139,6 @@
 
             </div>
             <div class="row">
-
-                {{-- Chart Pertanyaan 3 --}}
-                <div class="col-lg">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Feedback</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="section-title mt-0">Pertanyaan 1</div>
-                                    <canvas id="myChart4"></canvas>
-                                </div>
-                                <div class="col">
-                                    <div class="section-title mt-0">Pertanyaan 2</div>
-                                    <canvas id="myChart5"></canvas>
-                                </div>
-                                <div class="col">
-                                    <div class="section-title mt-0">Pertanyaan 3</div>
-                                    <canvas id="myChart6"></canvas>
-                                </div>
-                                <div class="col">
-                                    <div class="section-title mt-5">Pertanyaan 4</div>
-                                    <canvas id="myChart7"></canvas>
-                                </div>
-                                <div class="col">
-                                    <div class="section-title mt-5">Pertanyaan 5</div>
-                                    <canvas id="myChart8"></canvas>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                {{-- End Chart Pertanyaan 3 --}}
-
-            </div>
-            <div class="row">
-
-            </div>
-            <div class="row">
                 <div class="col-md">
                     <div class="card">
                         <div class="card-header">
