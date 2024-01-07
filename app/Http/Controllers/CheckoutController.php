@@ -21,7 +21,7 @@ class CheckoutController extends Controller
 
     public function store(CheckoutStoreRequest $request)
     {
-        $uang = $request->inp_uang;
+        $uang = $request->inp_uang ?? 0;
         $kembalian = str_replace('.', '', str_replace('Rp. ', '', $request->uang_kembalian));
         $carts = Cart::with(['product', 'user'])
             ->where('users_id', Auth::user()->id)
@@ -34,9 +34,9 @@ class CheckoutController extends Controller
                 $user = Auth::user()->id;
                 $transaction = Transaction::create([
                     'users_id' => $user,
-                    'total_price' => $request->totalPrice,
-                    'money' => $uang,
-                    'change' => $kembalian
+                    'total_price' => $request->totalPrice ?? 0,
+                    'money' => $uang ?? 0,
+                    'change' => $kembalian != '' ? $kembalian : 0
                 ]);
 
                 //tambah data transaksi detail dengan melooping cart dengan id user yang sedang login
@@ -47,13 +47,9 @@ class CheckoutController extends Controller
                         'qty' => $cart->qty,
                         'total' => $cart->product->price *  $cart->qty
                     ]);
-                    if ($cart->product->stock - $cart->qty < 0) {
-                        throw new Exception('Stok tidak cukup');
-                    }
-                    $cart->product()->update([
-                        'stock' => $cart->product->stock - $cart->qty
-                    ]);
                 }
+
+
 
                 // Delete cart data dengan id user yang sedang login
                 Cart::with(['product', 'user'])

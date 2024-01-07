@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Produk')
+@section('title', 'Jasa')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,9 +11,9 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Produk</h1>
+                <h1>Jasa</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item">Produk</div>
+                    <div class="breadcrumb-item">Jasa</div>
                 </div>
             </div>
             @if (session()->has('success'))
@@ -45,10 +45,10 @@
                     <div class="col-12">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h4>Data Produk</h4>
+                                <h4>Data Jasa</h4>
                                 <div class="card-header-action">
                                     <a href="{{ route('admin.produk.tambah-produk') }}" class="btn btn-primary">
-                                        Tambah Data Produk
+                                        Tambah Data Jasa
                                     </a>
                                 </div>
                             </div>

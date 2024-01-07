@@ -33,9 +33,9 @@ class AuthController extends Controller
 
         if (Auth::Attempt(['username' => $data['username'], 'password' => $data['password'], 'active' => 1])) {
             if (auth()->user()->roles === 'ADMIN') {
-                return redirect()->intended('admin/dashboard');
+                return redirect()->intended('admin/produk');
             } elseif (auth()->user()->roles === 'CUSTOMER') {
-                return redirect()->intended('customer/dashboard');
+                return redirect()->intended('customer/produk');
             } else {
                 return back()->withErrors([
                     'error' => 'Role tidak ditemukan',

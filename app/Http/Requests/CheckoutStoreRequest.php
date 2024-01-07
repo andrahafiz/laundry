@@ -24,8 +24,8 @@ class CheckoutStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'totalPrice' => ['required', 'integer'],
-            'inp_uang' => ['required', 'gte:totalPrice']
+            'totalPrice' => ['sometimes', 'integer'],
+            'inp_uang' => ['sometimes', 'gte:totalPrice']
         ];
     }
 

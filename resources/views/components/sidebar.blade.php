@@ -7,15 +7,19 @@
             <a href="index.html">St</a>
         </div>
         <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
+            {{-- <li class="menu-header">Dashboard</li>
             <li class="{{ $type_menu === 'dashboard' ? 'active' : '' }}">
                 <a href="{{ url('customer/dashboard') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Dashboard</span></a>
-            </li>
+            </li> --}}
             <li class="menu-header">Pesanan</li>
             <li class="{{ $type_menu === 'kasir' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('customer/kasir') }}"><i class="fas fa-reguler fa-cash-register"></i>
                     <span>Pesanan</span></a>
+            </li>
+            <li class="{{ Request::routeIs('customer.transaksi.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('customer/transaksi') }}"><i class="fas fa-money-bill"></i>
+                    <span>Riwayat Pesanan</span></a>
             </li>
         </ul>
 

@@ -57,7 +57,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Daftar Belanjaan</h4>
+                                <h4>Daftar Pesanan</h4>
                             </div>
                             <div class="card-body">
 
@@ -145,7 +145,8 @@
                                                         <label for="customer_name">Nama Customer</label>
                                                         <input type="text" class="form-control" id="customer_name"
                                                             name="customer_name" placeholder="Nama Customer" required
-                                                            value="{{ old('customer_name') }}">
+                                                            value="{{ Auth::user()->name ?? old('customer_name') }}"
+                                                            readonly>
                                                     </div>
                                                     <div class="form-group col-md-6 mb-0">
                                                         <label for="nohp_customer">Nomor Customer</label>
@@ -160,7 +161,7 @@
                                             </div>
                                         </div>
                                         <hr />
-                                        <div class="row">
+                                        {{-- <div class="row">
                                             <div class="col">
                                                 <div class="section-title mt-0">Data Pembayaran</div>
                                                 <div class="form-row">
@@ -190,24 +191,17 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <hr />
 
                                         <div class="row mt-2">
-                                            <div class="col">
-                                            </div>
-                                            <div class="col-3 text-right">
-                                                <div class="h5 font-weight-bold text-dark">{{ auth()->user()->name }}
-                                                </div>
-                                                <div class="product-subtitle">Kasir</div>
-                                            </div>
-                                            <div class="col-3 mr-1 text-right">
+                                            <div class="col-8 mr-1 text-right">
                                                 <div class="h5 font-weight-bold text-success">
                                                     Rp. {{ number_format($total ?? 0) }}</div>
                                                 <input type="hidden" name="totalPrice" value="{{ $total }}">
                                                 <div class="">Total</div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-3">
                                                 <button type="submit" id="btn_bayar"
                                                     class="btn btn-icon btn-sm btn-success btn-block p-2">
                                                     <i class="far fa-money-bill-1 py-2 " style="font-size:20px"></i>

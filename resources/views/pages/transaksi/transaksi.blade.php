@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Transaksi')
+@section('title', 'Riwayat Pesanan')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -12,9 +12,9 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Transaksi</h1>
+                <h1>Riwayat Pesanan</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item">Transaksi</div>
+                    <div class="breadcrumb-item">Riwayat Pesanan</div>
                 </div>
             </div>
             @if (session()->has('success'))
@@ -46,7 +46,7 @@
                     <div class="col-12">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h4>Data Transaksi</h4>
+                                <h4>Data Riwayat Pesanan</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -57,10 +57,12 @@
                                                     No
                                                 </th>
                                                 <th>ID Invoice</th>
-                                                <th>Total Transaksi</th>
-                                                <th>Kasir</th>
+                                                <th>Total</th>
+                                                <th>Customer</th>
+                                                <th>Metode Pembayaran</th>
                                                 <th>Invoice</th>
-                                                <th>Tanggal Transaksi</th>
+                                                <th>Tanggal Pemesanan</th>
+                                                <th>Status Pemesanan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -77,21 +79,41 @@
                                                         Rp. {{ Helper::formatRupiah($transaksi->total_price) }}</td>
                                                     <td class="align-middle">{{ $transaksi->user->name }}</td>
                                                     <td class="align-middle">
-                                                        <a
-                                                            href="{{ route(Helper::AdminOrUser('invoice'), $transaksi->id) }}">Lihat
-                                                            Invoice</a>
+                                                        {{ $transaksi->payment_method == 0 ? 'Cash' : 'Transfer' }}</td>
+                                                    <td class="align-middle">
+                                                        @if ($transaksi->payment_method == 0 && $transaksi->status_transactions == 4)
+                                                            <a
+                                                                href="{{ route(Helper::AdminOrUser('invoice'), $transaksi->id) }}">Lihat
+                                                                Invoice</a>
+                                                        @elseif($transaksi->payment_method == 2)
+                                                            <a
+                                                                href="{{ route(Helper::AdminOrUser('invoice'), $transaksi->id) }}">Lihat
+                                                                Invoice</a>
+                                                        @else
+                                                            Invoice Belum Terbit
+                                                        @endif
                                                     </td>
                                                     <td> {{ $transaksi->created_at->isoFormat('dddd, D MMMM Y H:ss') }}
                                                     </td>
-                                                    <td width="10%" class="ali gn-middle">
-                                                        <form method="POST"
-                                                            action="{{ route(Helper::AdminOrUser('transaksi.destory'), $transaksi->id) }}"
-                                                            class="d-inline">
-                                                            @csrf
-                                                            {{ method_field('delete') }}
-                                                            <button type="submit" class="btn btn-icon btn-sm btn-danger"
-                                                                title='Delete'> <i class="fas fa-trash"></i></button>
-                                                        </form>
+                                                    <td>
+                                                        @if ($transaksi->status_transactions == 0)
+                                                            <span class="badge badge-warning">Pengajuan</span>
+                                                        @elseif($transaksi->status_transactions == 1 && $transaksi->payment_method == 1)
+                                                            <span class="badge badge-warning">Menunggu Pembayaran</span>
+                                                        @elseif($transaksi->status_transactions == 2)
+                                                            <span class="badge badge-primary">Sedang Dicuci</span>
+                                                        @elseif($transaksi->status_transactions == 3)
+                                                            <span class="badge badge-primary">Sudah Dapat Diambil</span>
+                                                        @elseif($transaksi->status_transactions == 4)
+                                                            <span class="badge badge-success">Selesai</span>
+                                                        @else
+                                                            <span class="badge badge-secondary">Tidak Ada Status</span>
+                                                        @endif
+                                                    </td>
+                                                    <td width="10%" class="align-middle">
+                                                        <a href="" class="btn btn-icon btn-sm btn-info">
+                                                            <i class="fas fa-circle-info"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach

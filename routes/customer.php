@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\Customer\CartController;
 use App\Http\Controllers\KasirController;
-use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\Customer\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\Customer\TransactionController;
 use App\Http\Controllers\Customer\DashboardController;
 
 /*
