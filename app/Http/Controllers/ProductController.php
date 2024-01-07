@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\Karyawan\ProdukCreateRequest;
-use App\Http\Requests\Karyawan\ProdukUpdateRequest;
+use App\Http\Requests\Customer\ProdukCreateRequest;
+use App\Http\Requests\Customer\ProdukUpdateRequest;
 use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
@@ -37,20 +37,20 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->productModel->latest()->get();
-        return view('pages.karyawan.produk.produk', ['type_menu' => '', 'products' => $products]);
+        return view('pages.customer.produk.produk', ['type_menu' => '', 'products' => $products]);
     }
 
     public function create()
     {
         //
         $category = $this->categoryProductModel->get();
-        return view('pages.karyawan.produk.tambah-produk', ['type_menu' => '', 'categorys' => $category]);
+        return view('pages.customer.produk.tambah-produk', ['type_menu' => '', 'categorys' => $category]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Karyawan\ProdukCreateRequest  $request
+     * @param  \App\Http\Requests\Customer\ProdukCreateRequest  $request
      */
     public function store(ProdukCreateRequest $request)
     {
@@ -73,7 +73,7 @@ class ProductController extends Controller
                 'image' => $filename ?? 'no-image.jpg'
             ]);
         });
-        return redirect()->route('karyawan.produk.index')->with('success', "Data produk berhasil ditambahkan");
+        return redirect()->route('customer.produk.index')->with('success', "Data produk berhasil ditambahkan");
     }
 
     /**
@@ -86,7 +86,7 @@ class ProductController extends Controller
     {
         //
         // return $product;
-        return view('pages.karyawan.produk.detail-produk', ['type_menu' => '', 'product' => $product]);
+        return view('pages.customer.produk.detail-produk', ['type_menu' => '', 'product' => $product]);
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $category = $this->categoryProductModel->get();
-        return view('pages.karyawan.produk.edit-produk', [
+        return view('pages.customer.produk.edit-produk', [
             'type_menu' => '',
             'product' => $product,
             'categorys' => $category
@@ -107,7 +107,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Karyawan\ProdukUpdateRequest $request
+     * @param  \App\Http\Requests\Customer\ProdukUpdateRequest $request
      * @param  \App\Models\Product  $product
      */
     public function update(ProdukUpdateRequest $request, Product $product)
@@ -138,7 +138,7 @@ class ProductController extends Controller
                     'image' => $filename
                 ]);
             });
-            return redirect()->route('karyawan.produk.index')->with('success', "Data produk '{$product->name_product}' berhasil diubah");
+            return redirect()->route('customer.produk.index')->with('success', "Data produk '{$product->name_product}' berhasil diubah");
         } catch (\Throwable $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -152,6 +152,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('karyawan.produk.index')->with('success', "Data produk '{$product->name_product}' berhasil dihapus");
+        return redirect()->route('customer.produk.index')->with('success', "Data produk '{$product->name_product}' berhasil dihapus");
     }
 }

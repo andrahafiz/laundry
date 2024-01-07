@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Requests\Karyawan\CategoryCreateRequest;
-use App\Http\Requests\Karyawan\CategoryUpdateRequest;
+use App\Http\Requests\Customer\CategoryCreateRequest;
+use App\Http\Requests\Customer\CategoryUpdateRequest;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
@@ -45,7 +45,7 @@ class CategoryController extends Controller
                     'category' => $params['nama'],
                     'slug'     => Str::slug($params['nama']),
                     'code'     => Str::upper($params['code']),
-                ]); 
+                ]);
             });
             return redirect()->route('admin.kategori-produk.index')
                 ->with('success', "Data kategori produk berhasil ditambah");

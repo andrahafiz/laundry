@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <link rel="icon" href="{{ asset('img/stisla-fill.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('img/logo-alrescha.ico') }}" type="image/x-icon">
     <title>@yield('title') &mdash; Stisla</title>
     {{-- <img src="" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2"> --}}
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('library/bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @stack('style')
 
@@ -45,12 +43,12 @@
 
             <!-- Sidebar -->
             @if (Auth::check())
-                @if (auth()->user()->roles == 'ADMIN')
-                    {{-- @include('components.sidebar-ex') --}}
-                    @include('components.sidebar-admin')
-                @else
-                    @include('components.sidebar')
-                @endif
+            @if (auth()->user()->roles == 'ADMIN')
+            {{-- @include('components.sidebar-ex') --}}
+            @include('components.sidebar-admin')
+            @else
+            @include('components.sidebar')
+            @endif
             @endif
             <!-- Content -->
             @yield('main')

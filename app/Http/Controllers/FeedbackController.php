@@ -18,7 +18,7 @@ class FeedbackController extends Controller
     {
         $feedback = Feedback::paginate(10);
 
-        return view('pages.karyawan.feedback.feedback', ['type_menu' => '', 'feedbacks' => $feedback]);
+        return view('pages.customer.feedback.feedback', ['type_menu' => '', 'feedbacks' => $feedback]);
     }
 
     public function create($feedback)
@@ -60,7 +60,7 @@ class FeedbackController extends Controller
 
     public function show(Feedback $feedback)
     {
-        return view('pages.karyawan.feedback.detail-feedback', [
+        return view('pages.customer.feedback.detail-feedback', [
             'type_menu' => '',
             'feedback' => $feedback
         ]);

@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Dapur Amy</a>
+            <a href="index.html">Alrescha Wash</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
@@ -35,8 +35,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="{{ Request::routeIs('karyawan.produk.*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('karyawan/produk') }}"><i class="fa-solid fa-boxes-stacked"></i>
+            <li class="{{ Request::routeIs('customer.produk.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('customer/produk') }}"><i class="fa-solid fa-boxes-stacked"></i>
                     <span>Produk</span></a>
             </li>
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
@@ -108,7 +108,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="menu-header">Dapur Amy</li>
+            <li class="menu-header">Alrescha Wash</li>
             <li class="nav-item dropdown {{ $type_menu === 'components' ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i>
                     <span>Components</span></a>

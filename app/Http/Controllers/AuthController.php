@@ -18,7 +18,7 @@ class AuthController extends Controller
             if (auth()->user()->roles === 'ADMIN') {
                 return redirect('admin/dashboard');
             }
-            return redirect('karyawan/dashboard');
+            return redirect('customer/dashboard');
         } else {
             return view('pages.auth-login');
         }
@@ -34,8 +34,8 @@ class AuthController extends Controller
         if (Auth::Attempt(['username' => $data['username'], 'password' => $data['password'], 'active' => 1])) {
             if (auth()->user()->roles === 'ADMIN') {
                 return redirect()->intended('admin/dashboard');
-            } elseif (auth()->user()->roles === 'KARYAWAN') {
-                return redirect()->intended('karyawan/dashboard');
+            } elseif (auth()->user()->roles === 'CUSTOMER') {
+                return redirect()->intended('customer/dashboard');
             } else {
                 return back()->withErrors([
                     'error' => 'Role tidak ditemukan',

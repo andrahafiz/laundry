@@ -9,7 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\Karyawan\DashboardController;
+use App\Http\Controllers\Customer\DashboardController;
 
 /*
 |--------------------------------------------------------------------------

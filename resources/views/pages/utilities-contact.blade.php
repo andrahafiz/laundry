@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Contact &mdash; Dapur Amy</title>
+    <title>Contact &mdash; Alrescha Wash</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('library/bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS Libraries -->
 
@@ -40,7 +38,7 @@
                 <div class="row">
                     <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
                         <div class="login-brand">
-                            Dapur Amy
+                            Alrescha Wash
                         </div>
 
                         <div class="card card-primary">
@@ -59,8 +57,7 @@
                                                             <i class="far fa-user"></i>
                                                         </div>
                                                     </div>
-                                                    <input id="name" type="text" class="form-control"
-                                                        name="name" autofocus placeholder="Name">
+                                                    <input id="name" type="text" class="form-control" name="name" autofocus placeholder="Name">
                                                 </div>
                                             </div>
 
@@ -72,8 +69,7 @@
                                                             <i class="fas fa-envelope"></i>
                                                         </div>
                                                     </div>
-                                                    <input id="email" type="email" class="form-control"
-                                                        name="email" placeholder="Email">
+                                                    <input id="email" type="email" class="form-control" name="email" placeholder="Email">
                                                 </div>
                                             </div>
 
@@ -96,7 +92,7 @@
                             </div>
                         </div>
                         <div class="simple-footer">
-                            Copyright &copy; Dapur Amy 2018
+                            Copyright &copy; Alrescha Wash 2018
                         </div>
                     </div>
                 </div>

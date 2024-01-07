@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Subscribe &mdash; Dapur Amy</title>
+    <title>Subscribe &mdash; Alrescha Wash</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('library/bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS Libraries -->
 
@@ -38,10 +36,9 @@
         <section class="section">
             <div class="container mt-5">
                 <div class="row">
-                    <div
-                        class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+                    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
                         <div class="login-brand">
-                            Dapur Amy
+                            Alrescha Wash
                         </div>
 
                         <div class="card card-primary">
@@ -58,8 +55,7 @@
                                                     <i class="fas fa-envelope"></i>
                                                 </div>
                                             </div>
-                                            <input id="email" type="email" class="form-control" name="email"
-                                                autofocus placeholder="Email">
+                                            <input id="email" type="email" class="form-control" name="email" autofocus placeholder="Email">
                                         </div>
                                     </div>
 
@@ -72,7 +68,7 @@
                             </div>
                         </div>
                         <div class="simple-footer">
-                            Copyright &copy; Dapur Amy 2018
+                            Copyright &copy; Alrescha Wash 2018
                         </div>
                     </div>
                 </div>

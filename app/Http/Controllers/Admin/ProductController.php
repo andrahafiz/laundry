@@ -11,8 +11,8 @@ use App\Models\ImageProduct;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\Karyawan\ProdukCreateRequest;
-use App\Http\Requests\Karyawan\ProdukUpdateRequest;
+use App\Http\Requests\Customer\ProdukCreateRequest;
+use App\Http\Requests\Customer\ProdukUpdateRequest;
 use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
@@ -51,7 +51,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Karyawan\ProdukCreateRequest  $request
+     * @param  \App\Http\Requests\Customer\ProdukCreateRequest  $request
      */
     public function store(ProdukCreateRequest $request)
     {
@@ -114,7 +114,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Karyawan\ProdukUpdateRequest $request
+     * @param  \App\Http\Requests\Customer\ProdukUpdateRequest $request
      * @param  \App\Models\Product  $product
      */
     public function update(ProdukUpdateRequest $request, Product $product)

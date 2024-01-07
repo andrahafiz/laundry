@@ -25,7 +25,7 @@ class Helper
         if (auth()->user()->roles == 'ADMIN') {
             return 'admin.' . $route;
         } else {
-            return 'karyawan.' . $route;
+            return 'customer.' . $route;
         }
     }
 

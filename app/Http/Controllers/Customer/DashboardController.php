@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Karyawan;
+namespace App\Http\Controllers\Customer;
 
 use Carbon\Carbon;
 use App\Models\Transaction;
@@ -25,7 +25,7 @@ class DashboardController extends Controller
             'feedbacks' => $this->feedback(),
             'chartTransactions' => $this->chartTransaction()
         ];
-        return view('pages.karyawan.dashboard', ['type_menu' =>
+        return view('pages.customer.dashboard', ['type_menu' =>
         'dashboard', 'data' => $data]);
     }
 

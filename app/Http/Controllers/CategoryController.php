@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Requests\Karyawan\CategoryCreateRequest;
-use App\Http\Requests\Karyawan\CategoryUpdateRequest;
+use App\Http\Requests\Customer\CategoryCreateRequest;
+use App\Http\Requests\Customer\CategoryUpdateRequest;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
@@ -25,12 +25,12 @@ class CategoryController extends Controller
     public function index()
     {
         $category_produk = $this->categoryProductModel->get();
-        return view('pages.karyawan.kategori_produk.kategori_produk', ['type_menu' => '', 'category_products' => $category_produk]);
+        return view('pages.customer.kategori_produk.kategori_produk', ['type_menu' => '', 'category_products' => $category_produk]);
     }
 
     public function create()
     {
-        return view('pages.karyawan.kategori_produk.tambah_kategori_produk', ['type_menu' => '']);
+        return view('pages.customer.kategori_produk.tambah_kategori_produk', ['type_menu' => '']);
     }
 
     public function store(CategoryCreateRequest $request)
@@ -46,7 +46,7 @@ class CategoryController extends Controller
                     'code'     => Str::upper($params['code']),
                 ]);
             });
-            return redirect()->route('karyawan.kategori-produk.index')
+            return redirect()->route('customer.kategori-produk.index')
                 ->with('success', "Data kategori produk berhasil ditambah");
         } catch (\Throwable $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -55,7 +55,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        return view('pages.karyawan.kategori_produk.edit_kategori_produk', [
+        return view('pages.customer.kategori_produk.edit_kategori_produk', [
             'type_menu' => '',
             'category' => $category
         ]);
@@ -74,7 +74,7 @@ class CategoryController extends Controller
                     'code' => Str::upper($params['code']),
                 ]);
             });
-            return redirect()->route('karyawan.kategori-produk.index')
+            return redirect()->route('customer.kategori-produk.index')
                 ->with('success', "Data kategori produk '{$category->category}' berhasil diubah");
         } catch (\Throwable $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -85,7 +85,7 @@ class CategoryController extends Controller
     {
         try {
             $category->delete();
-            return redirect()->route('karyawan.kategori-produk.index')
+            return redirect()->route('customer.kategori-produk.index')
                 ->with('success', "Data kategori produk '{$category->category}' berhasil dihapus");
         } catch (\Throwable $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

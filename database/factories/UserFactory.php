@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'no_hp' => fake()->randomNumber(5, true),
             'address' => fake()->address(),
             'photo' => 'avatar.jpg',
-            'roles' => fake()->randomElement(['ADMIN', 'KARYAWAN'])
+            'roles' => fake()->randomElement(['ADMIN', 'CUSTOMER'])
         ];
     }
 

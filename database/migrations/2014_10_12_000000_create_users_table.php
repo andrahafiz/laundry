@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('no_hp')->unique();
             $table->string('address')->nullable();
             $table->string('photo')->default('avatar.jpg');
-            $table->enum('roles', ['ADMIN', 'KARYAWAN'])->default('KARYAWAN');
+            $table->enum('roles', ['ADMIN', 'CUSTOMER'])->default('CUSTOMER');
             $table->smallInteger('active')->default(1);
             $table->rememberToken();
             $table->timestamps();

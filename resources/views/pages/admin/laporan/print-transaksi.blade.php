@@ -75,13 +75,13 @@
     <h2 style="text-align: center">LAPORAN TRANSAKSI</h2>
     <hr />
     @php
-        $total = 0;
+    $total = 0;
     @endphp
     <table id="test" style="margin-bottom:4%">
         <tr>
             <td style="width: 100px;">Nama Usaha</td>
             <td>:</td>
-            <td>Dapur Mama Amy</td>
+            <td>Alrescha Wash</td>
             <td>Jumlah transaksi</td>
             <td>:</td>
             <td>{{ count($transactions) }}</td>
@@ -115,14 +115,14 @@
         </thead>
         <tbody>
             @foreach ($transactions as $transaksi)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td> {{ $transaksi->created_at->isoFormat('D MMMM Y H:ss') }}</td>
-                    <td>INV/{{ $transaksi->id }}</td>
-                    <td>{{ $transaksi->user->name }}</td>
-                    <td>{{ $transaksi->feedaback->customer_name ?? '-' }}</td>
-                    <td><b>Rp. {{ Helper::formatRupiah($transaksi->total_price) }}</b>
-                </tr>
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td> {{ $transaksi->created_at->isoFormat('D MMMM Y H:ss') }}</td>
+                <td>INV/{{ $transaksi->id }}</td>
+                <td>{{ $transaksi->user->name }}</td>
+                <td>{{ $transaksi->feedaback->customer_name ?? '-' }}</td>
+                <td><b>Rp. {{ Helper::formatRupiah($transaksi->total_price) }}</b>
+            </tr>
             @endforeach
             <tr class="summury">
                 <td colspan="2">Jumlah Transaksi</td>

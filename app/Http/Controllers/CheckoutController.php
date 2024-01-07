@@ -74,7 +74,7 @@ class CheckoutController extends Controller
             if (auth()->user()->roles == 'ADMIN') {
                 return redirect()->route('admin.transaksi.index')->with('success', "Transaksi Selesai");
             } else {
-                return redirect()->route('karyawan.transaksi.index')->with('success', "Transaksi Selesai");
+                return redirect()->route('customer.transaksi.index')->with('success', "Transaksi Selesai");
             }
         } catch (\Throwable $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()])->withInput();
@@ -90,8 +90,8 @@ class CheckoutController extends Controller
             'Authorization' => env('Wa_Authorization')
         ])->post('https://api.fonnte.com/send', [
             'target' => "$nohp|$name",
-            'message' => 'Terima kasih {name} telah membeli produk di Dapur Amy. Jangan lupa mengisi ulasan untuk membantu kami meningkatkan pelayanan.
-            Beri ulasan mu pada link berikut ' . $linkfeedback . ' . 
+            'message' => 'Terima kasih {name} telah membeli produk di Alrescha Wash. Jangan lupa mengisi ulasan untuk membantu kami meningkatkan pelayanan.
+            Beri ulasan mu pada link berikut ' . $linkfeedback . ' .
             Terima kasih atas ketersediaan Anda mengisi kolom ulasan. Semua kritik dan saran yang disampaikan akan menjadi bahan evaluasi bagi kami.',
             'delay' => '2',
             'countryCode' => '62',
