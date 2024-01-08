@@ -27,14 +27,15 @@ class CheckoutController extends Controller
             ->where('users_id', Auth::user()->id)
             ->get();
         try {
-            $linkfeedback = '';
-            DB::transaction(function () use ($request, $carts, $uang, $kembalian, &$linkfeedback) {
+            $transaction = null;
+            DB::transaction(function () use ($request, $carts, $uang, $kembalian, &$transaction) {
                 //tambah data transaksi
 
                 $user = Auth::user()->id;
                 $transaction = Transaction::create([
                     'users_id' => $user,
                     'order_type' => $request->tipe_order,
+                    'payment_method' => $request->metode_pembayaran,
                     'total_price' => $request->totalPrice ?? 0,
                     'money' => $uang ?? 0,
                     'change' => $kembalian != '' ? $kembalian : 0
@@ -68,8 +69,8 @@ class CheckoutController extends Controller
 
                 $this->sendWhatsapp($request, $feedback);
             });
-            if (auth()->user()->roles == 'ADMIN') {
-                return redirect()->route('admin.transaksi.index')->with('success', "Transaksi Selesai");
+            if ($transaction['payment_method'] == 1) {
+                return redirect()->route('customer.buktitransfer', $transaction['id'])->with('success', "Transaksi Selesai, Silahkan Upload Bukti Transfer");
             } else {
                 return redirect()->route('customer.transaksi.index')->with('success', "Transaksi Selesai");
             }

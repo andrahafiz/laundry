@@ -27,6 +27,7 @@ class CheckoutStoreRequest extends FormRequest
             'totalPrice'    => ['sometimes', 'integer'],
             'nohp_customer' => ['nullable', 'string'],
             'tipe_order'    => ['required'],
+            'metode_pembayaran' => ['required'],
             'alamat'        => ['required_if:tipe_order,1'],
             'customer_name' => ['required', 'string'],
             'inp_uang'      => ['sometimes', 'gte:totalPrice']
@@ -37,6 +38,7 @@ class CheckoutStoreRequest extends FormRequest
     {
         return [
             'alamat.required_if'    => "Alamat harus diisi karena anda memilih tipe order antar jemput staff",
+            'metode_pembayaran.required' => "Metode pembayaran harus diisi",
             'tipe_order.required'   => "Tipe order harus diisi",
             'nohp_customer.string'  => 'Nama customer wajib berupa karakter',
             'customer_name.required' => 'Nama customer wajib diisi',
