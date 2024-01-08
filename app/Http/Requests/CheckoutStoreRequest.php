@@ -24,17 +24,23 @@ class CheckoutStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'totalPrice' => ['sometimes', 'integer'],
+            'totalPrice'    => ['sometimes', 'integer'],
+            'nohp_customer' => ['nullable', 'string'],
+            'tipe_order'    => ['required'],
+            'alamat'        => ['required_if:tipe_order,1'],
             'customer_name' => ['required', 'string'],
-            'inp_uang' => ['sometimes', 'gte:totalPrice']
+            'inp_uang'      => ['sometimes', 'gte:totalPrice']
         ];
     }
 
     public function messages()
     {
         return [
-            'customer_name.required'     => 'Nama customer wajib diisi',
-            'customer_name.string'       => 'Nama customer wajib berupa karakter',
+            'alamat.required_if'    => "Alamat harus diisi karena anda memilih tipe order antar jemput staff",
+            'tipe_order.required'   => "Tipe order harus diisi",
+            'nohp_customer.string'  => 'Nama customer wajib berupa karakter',
+            'customer_name.required' => 'Nama customer wajib diisi',
+            'customer_name.string'  => 'Nama customer wajib berupa karakter',
             'totalPrice.required'   => 'Terdapat kesalahan pada total harga',
             'totalPrice.integer'    => 'Terdapat kesalahan pada total harga ( harus angka )',
             'inp_uang.required'     => 'Inputan uang dari pelanggan harus diisi',

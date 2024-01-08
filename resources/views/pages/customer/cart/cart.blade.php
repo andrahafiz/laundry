@@ -158,20 +158,15 @@
                                             <div class="col">
                                                 <div class="section-title mt-0">Data Customer</div>
                                                 <div class="form-row">
-                                                    <div class="form-group col-md-3 mb-0">
+                                                    <div class="form-group col-md mb-0">
                                                         <label for="customer_name">Nama Customer</label>
                                                         <input type="text" class="form-control" id="customer_name"
                                                             name="customer_name" placeholder="Nama Customer" required
                                                             value="{{ Auth::user()->name ?? old('customer_name') }}"
                                                             readonly>
                                                     </div>
-                                                    <div class="form-group col-md-3 mb-0">
-                                                        <label for="alamat">Alamat Customer</label>
-                                                        <input type="text" class="form-control" id="alamat"
-                                                            placeholder="Alamat" name="alamat"
-                                                            value="{{ old('alamat') }}">
-                                                    </div>
-                                                    <div class="form-group col-md-3 mb-0">
+
+                                                    <div class="form-group col-md mb-0">
                                                         <label for="nohp_customer">Nomor Customer</label>
                                                         <input type="text" class="form-control" id="nohp_customer"
                                                             placeholder="Nomor Whatsapp/Hp Customer. Format : 628123123123"
@@ -180,23 +175,35 @@
                                                             Gunakan Format : 628123123123
                                                         </small>
                                                     </div>
-                                                    <div class="form-group col-md-3 mb-0">
+                                                    <div class="form-group col-md mb-0">
                                                         <label>Metode Pembayaran</label>
-                                                        <select class="form-control" required>
-                                                            <option>Silahkan Pilih</option>
+                                                        <select class="form-control" name="metode_pembayaran" required>
+                                                            <option value="">Silahkan Pilih</option>
                                                             <option value="0">Cash</option>
                                                             <option value="1">Transfer</option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group col-md-3 mb-0">
-                                                        <label>Metode Pembayaran</label>
-                                                        <select class="form-control" required>
-                                                            <option>Silahkan Pilih</option>
-                                                            <option value="0">Antar Jemput</option>
-                                                            <option value="1">Transfer</option>
+                                                    {{-- <div class="row"> --}}
+
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md mb-0">
+                                                        <label>Tipe Order</label>
+                                                        <select class="form-control" name="tipe_order" required>
+                                                            <option value="">Silahkan Pilih</option>
+                                                            <option value="0">Antar Jemput Sendiri</option>
+                                                            <option value="1">Antar Jemput Staff</option>
                                                         </select>
                                                     </div>
+                                                    <div class="form-group col-md mb-0">
+                                                        <label for="alamat">Alamat Customer</label>
+                                                        <input type="text" class="form-control" id="alamat"
+                                                            placeholder="Alamat" name="alamat"
+                                                            value="{{ old('alamat') }}">
+                                                    </div>
+
                                                 </div>
+                                                {{-- </div> --}}
                                             </div>
                                         </div>
                                         <hr />

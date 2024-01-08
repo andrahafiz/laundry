@@ -64,7 +64,6 @@
                                                 <th>Tipe Order</th>
                                                 <th>Tanggal Pemesanan</th>
                                                 <th>Status Pemesanan</th>
-                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -118,12 +117,6 @@
                                                         @else
                                                             <span class="badge badge-secondary">Tidak Ada Status</span>
                                                         @endif
-                                                    </td>
-                                                    <td width="10%" class="align-middle">
-                                                        <a href="{{ route('admin.transaksi.edit', $transaksi->id) }}"
-                                                            class="btn btn-icon btn-sm btn-info">
-                                                            <i class="fas fa-circle-info"></i>
-                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach

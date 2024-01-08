@@ -20,7 +20,7 @@ class TransactionController extends Controller
     public function index()
     {
         $transactions = Transaction::where('users_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
-        return view('pages.transaksi.transaksi', ['type_menu' => 'transaksi', 'transactions' => $transactions]);
+        return view('pages.customer.transaksi.transaksi', ['type_menu' => 'transaksi', 'transactions' => $transactions]);
     }
 
     /**

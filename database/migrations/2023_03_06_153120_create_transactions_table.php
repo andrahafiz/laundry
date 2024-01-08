@@ -18,8 +18,9 @@ return new class extends Migration
             $table->foreignId('users_id');
             $table->integer('total_price');
             $table->integer('money')->default(0);
-            $table->integer('change')->default(0);;
+            $table->integer('change')->default(0);
             $table->integer('payment_method')->default(0)->comment("0:cash 1:tf");
+            $table->integer('order_type')->comment("0: self 1:antar jemput");
             $table->integer('status_transactions')->default(0);
             $table->timestamps();
             $table->softDeletes();

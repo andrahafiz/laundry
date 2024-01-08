@@ -21,7 +21,6 @@ class CheckoutController extends Controller
 
     public function store(CheckoutStoreRequest $request)
     {
-        dd($request->all());
         $uang = $request->inp_uang ?? 0;
         $kembalian = str_replace('.', '', str_replace('Rp. ', '', $request->uang_kembalian));
         $carts = Cart::with(['product', 'user'])
@@ -35,6 +34,7 @@ class CheckoutController extends Controller
                 $user = Auth::user()->id;
                 $transaction = Transaction::create([
                     'users_id' => $user,
+                    'order_type' => $request->tipe_order,
                     'total_price' => $request->totalPrice ?? 0,
                     'money' => $uang ?? 0,
                     'change' => $kembalian != '' ? $kembalian : 0

@@ -94,6 +94,7 @@ Route::controller(CartController::class)->group(
 Route::controller(TransactionController::class)->group(
     function () {
         Route::get('/transaksi', 'index')->name('transaksi.index');
+        Route::get('/transaksi/{transaction}', 'show')->name('transaksi.edit');
         Route::delete('/transaksi/{transaction}/destroy', 'destroy')->name('transaksi.destory');
     }
 );
