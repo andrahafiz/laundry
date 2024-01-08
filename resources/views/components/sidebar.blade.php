@@ -21,6 +21,10 @@
                 <a class="nav-link" href="{{ url('customer/transaksi') }}"><i class="fas fa-money-bill"></i>
                     <span>Riwayat Pesanan</span></a>
             </li>
+            <li class="{{ Request::routeIs('customer.user.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('customer/user') }}"><i class="fas fa-users"></i>
+                    <span>Profile</span></a>
+            </li>
         </ul>
 
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">

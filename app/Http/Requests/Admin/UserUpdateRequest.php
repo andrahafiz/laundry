@@ -31,7 +31,6 @@ class UserUpdateRequest extends FormRequest
             'no_hp' => ['numeric', 'required'],
             'address' => ['string'],
             'image' => ['file', 'image', 'mimes:png,jpg'],
-            'roles' => ['string', 'required'],
         ];
     }
     public function messages()

@@ -79,7 +79,9 @@
                                 </div>
                                 <div class="article-details rounded-bottom">
                                     <div class="article-title ">
-                                        <h2><a href="#">{{ $produk->name_product }}</a></h2>
+                                        <h2><a
+                                                href="{{ route('customer.produk.detail', $produk->slug) }}">{{ $produk->name_product }}</a>
+                                        </h2>
                                     </div>
                                     {!! Str::limit($produk->description, 65, ' ...') !!}
                                     <div class="article-cta mt-3">

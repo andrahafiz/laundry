@@ -1,15 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Customer\CartController;
 use App\Http\Controllers\KasirController;
-use App\Http\Controllers\Customer\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\Customer\TransactionController;
+use App\Http\Controllers\Customer\UserController;
+use App\Http\Controllers\Customer\CartController;
+use App\Http\Controllers\Customer\InvoiceController;
 use App\Http\Controllers\Customer\DashboardController;
+use App\Http\Controllers\Customer\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,15 +48,16 @@ Route::controller(CategoryController::class)->group(
     }
 );
 
-// Route::controller(FeedbackController::class)->group(
-//     function () {
-//         Route::get('/feedback', 'index')->name('feedback.index');
-//         Route::put('/feedback/update/{feedback}', 'update')->name('feedback.update');
-//         Route::get('/feedback/detail/{feedback}',  'show')->name('feedback.show');
-//         Route::delete('/feedback/{feedback}',  'destroy')->name('feedback.destroy');
-//     }
-// );
-
+Route::controller(UserController::class)->group(
+    function () {
+        Route::get('/user', 'index')->name('user.index');
+        // Route::get('/user/tambah-user',  'create')->name('user.tambah-user');
+        // Route::post('/user/tambah-user/store',  'store')->name('user.store');
+        // Route::get('/user/edit-user/{user}',  'edit')->name('user.edit');
+        Route::put('/user/edit-user/update/{user}',  'update')->name('user.update');
+        // Route::delete('/user/hapus-user/{user}',  'destroy')->name('user.destroy');
+    }
+);
 
 Route::controller(KasirController::class)->group(
     function () {

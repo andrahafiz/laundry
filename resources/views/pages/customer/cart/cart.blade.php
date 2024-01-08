@@ -170,7 +170,8 @@
                                                         <label for="nohp_customer">Nomor Customer</label>
                                                         <input type="text" class="form-control" id="nohp_customer"
                                                             placeholder="Nomor Whatsapp/Hp Customer. Format : 628123123123"
-                                                            name="nohp_customer" value="{{ old('nohp_customer') }}">
+                                                            name="nohp_customer"
+                                                            value="{{ Auth::user()->no_hp ?? old('nohp_customer') }}">
                                                         <small id="" class="form-text text-muted">
                                                             Gunakan Format : 628123123123
                                                         </small>
@@ -199,7 +200,7 @@
                                                         <label for="alamat">Alamat Customer</label>
                                                         <input type="text" class="form-control" id="alamat"
                                                             placeholder="Alamat" name="alamat"
-                                                            value="{{ old('alamat') }}">
+                                                            value="{{ Auth::user()->address ?? old('alamat') }}">
                                                     </div>
 
                                                 </div>
@@ -251,7 +252,7 @@
                                                 <button type="submit" id="btn_bayar"
                                                     class="btn btn-icon btn-sm btn-success btn-block p-2">
                                                     <i class="far fa-money-bill-1 py-2 " style="font-size:20px"></i>
-                                                    <span class="font-weight-bold h5"> Bayar</span>
+                                                    <span class="font-weight-bold h5"> Pesan</span>
                                                 </button>
                                             </div>
                                         </div>

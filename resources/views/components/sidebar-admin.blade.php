@@ -37,7 +37,6 @@
                 <a class="nav-link" href="{{ url('admin/kategori-produk') }}"><i class="fas fa-boxes-stacked"></i>
                     <span>Kategori Jasa</span></a>
             </li>
-
         </ul>
 
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">
