@@ -21,6 +21,7 @@ class CheckoutController extends Controller
 
     public function store(CheckoutStoreRequest $request)
     {
+        dd($request->all());
         $uang = $request->inp_uang ?? 0;
         $kembalian = str_replace('.', '', str_replace('Rp. ', '', $request->uang_kembalian));
         $carts = Cart::with(['product', 'user'])

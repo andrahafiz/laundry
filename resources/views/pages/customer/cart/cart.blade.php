@@ -16,6 +16,7 @@
                     <div class="breadcrumb-item">Keranjang</div>
                 </div>
             </div>
+
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible alert-has-icon show fade">
                     <div class="alert-icon"><i class="far fa-circle-check"></i></div>
@@ -25,6 +26,22 @@
                             <span>&times;</span>
                         </button>
                         {{ session('success') }}!
+                    </div>
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible alert-has-icon show fade">
+                    <div class="alert-icon"><i class="far fa-circle-xmark"></i></div>
+                    <div class="alert-body">
+                        <div class="alert-title">Gagal</div>
+                        <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                        </button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             @endif
@@ -141,14 +158,20 @@
                                             <div class="col">
                                                 <div class="section-title mt-0">Data Customer</div>
                                                 <div class="form-row">
-                                                    <div class="form-group col-md-6 mb-0">
+                                                    <div class="form-group col-md-3 mb-0">
                                                         <label for="customer_name">Nama Customer</label>
                                                         <input type="text" class="form-control" id="customer_name"
                                                             name="customer_name" placeholder="Nama Customer" required
                                                             value="{{ Auth::user()->name ?? old('customer_name') }}"
                                                             readonly>
                                                     </div>
-                                                    <div class="form-group col-md-6 mb-0">
+                                                    <div class="form-group col-md-3 mb-0">
+                                                        <label for="alamat">Alamat Customer</label>
+                                                        <input type="text" class="form-control" id="alamat"
+                                                            placeholder="Alamat" name="alamat"
+                                                            value="{{ old('alamat') }}">
+                                                    </div>
+                                                    <div class="form-group col-md-3 mb-0">
                                                         <label for="nohp_customer">Nomor Customer</label>
                                                         <input type="text" class="form-control" id="nohp_customer"
                                                             placeholder="Nomor Whatsapp/Hp Customer. Format : 628123123123"
@@ -156,6 +179,22 @@
                                                         <small id="" class="form-text text-muted">
                                                             Gunakan Format : 628123123123
                                                         </small>
+                                                    </div>
+                                                    <div class="form-group col-md-3 mb-0">
+                                                        <label>Metode Pembayaran</label>
+                                                        <select class="form-control" required>
+                                                            <option>Silahkan Pilih</option>
+                                                            <option value="0">Cash</option>
+                                                            <option value="1">Transfer</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-3 mb-0">
+                                                        <label>Metode Pembayaran</label>
+                                                        <select class="form-control" required>
+                                                            <option>Silahkan Pilih</option>
+                                                            <option value="0">Antar Jemput</option>
+                                                            <option value="1">Transfer</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>

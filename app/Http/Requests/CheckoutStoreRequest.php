@@ -25,6 +25,7 @@ class CheckoutStoreRequest extends FormRequest
     {
         return [
             'totalPrice' => ['sometimes', 'integer'],
+            'customer_name' => ['required', 'string'],
             'inp_uang' => ['sometimes', 'gte:totalPrice']
         ];
     }
@@ -32,10 +33,12 @@ class CheckoutStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'totalPrice.required' => 'Terdapat kesalahan pada total harga',
-            'totalPrice.integer' => 'Terdapat kesalahan pada total harga ( harus angka )',
-            'inp_uang.required' => 'Inputan uang dari pelanggan harus diisi',
-            'inp_uang.gte' => 'Uang tidak cukup',
+            'customer_name.required'     => 'Nama customer wajib diisi',
+            'customer_name.string'       => 'Nama customer wajib berupa karakter',
+            'totalPrice.required'   => 'Terdapat kesalahan pada total harga',
+            'totalPrice.integer'    => 'Terdapat kesalahan pada total harga ( harus angka )',
+            'inp_uang.required'     => 'Inputan uang dari pelanggan harus diisi',
+            'inp_uang.gte'          => 'Uang tidak cukup',
         ];
     }
 }

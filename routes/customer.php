@@ -47,14 +47,14 @@ Route::controller(CategoryController::class)->group(
     }
 );
 
-Route::controller(FeedbackController::class)->group(
-    function () {
-        Route::get('/feedback', 'index')->name('feedback.index');
-        Route::put('/feedback/update/{feedback}', 'update')->name('feedback.update');
-        Route::get('/feedback/detail/{feedback}',  'show')->name('feedback.show');
-        Route::delete('/feedback/{feedback}',  'destroy')->name('feedback.destroy');
-    }
-);
+// Route::controller(FeedbackController::class)->group(
+//     function () {
+//         Route::get('/feedback', 'index')->name('feedback.index');
+//         Route::put('/feedback/update/{feedback}', 'update')->name('feedback.update');
+//         Route::get('/feedback/detail/{feedback}',  'show')->name('feedback.show');
+//         Route::delete('/feedback/{feedback}',  'destroy')->name('feedback.destroy');
+//     }
+// );
 
 
 Route::controller(KasirController::class)->group(
